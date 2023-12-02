@@ -58,8 +58,8 @@ jobs:
       run: |
         git config --global user.email "hayko5999@gamil.com"
         git config --global user.name "hayk96" 
-        git fetch origin gh-pages        
-        git add build     
-        git commit --no-edit --allow-empty -m "Committed at $(date)"
+        git fetch origin gh-pages
         git checkout gh-pages
+        git add build     
+        git commit --allow-empty -m "Committed at $(date)" --amend
         git push origin gh-pages -f
