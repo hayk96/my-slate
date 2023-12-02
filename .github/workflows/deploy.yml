@@ -55,5 +55,6 @@ jobs:
 
     - name: Commit and push changes
       run: |
+        git add build
         git commit --no-edit --allow-empty -m "Committed at $(date)"
-        git push
+        git push origin gh-pages
