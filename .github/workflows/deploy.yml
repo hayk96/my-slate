@@ -40,7 +40,6 @@ jobs:
     - run: bundle exec middleman build
 
     - name: list directory
-      uses: actions/checkout@v4
       run: |
         ls -l
 
