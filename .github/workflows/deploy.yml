@@ -18,6 +18,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -25,7 +27,6 @@ jobs:
 
     - uses: actions/cache@v2
       with:
-        fetch-depth: 0
         path: vendor/bundle
         key: gems-${{ runner.os }}-${{ env.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
