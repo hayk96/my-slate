@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs    
 
     strategy:
       matrix:
@@ -23,7 +26,7 @@ jobs:
 
     - uses: actions/cache@v2
       with:
-        path: docs/vendor/bundle
+        path: vendor/bundle
         key: gems-${{ runner.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           gems-${{ runner.os }}-${{ matrix.ruby-version }}-
@@ -36,7 +39,7 @@ jobs:
     - run: bundle config set deployment 'true'
     - name: bundle install
       run: |
-        bundle config path docs/vendor/bundle
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
 
     - run: bundle exec middleman build
