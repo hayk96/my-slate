@@ -62,4 +62,4 @@ jobs:
         git add build     
         git commit --no-edit --allow-empty -m "Committed at $(date)"
         git checkout gh-pages
-        git push origin gh-pages
+        git push origin gh-pages -f
