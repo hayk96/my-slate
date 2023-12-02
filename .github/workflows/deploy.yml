@@ -41,7 +41,8 @@ jobs:
 
     - name: list directory
       uses: actions/checkout@v4
-      run: ls -l
+      run: |
+        ls -l
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
