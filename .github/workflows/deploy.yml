@@ -42,6 +42,8 @@ jobs:
     - name: list directory
       run: |
         ls -l
+        pwd
+        ls -l ./build
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
