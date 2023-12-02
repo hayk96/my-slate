@@ -57,7 +57,8 @@ jobs:
     - name: Commit and push changes
       run: |
         git config --global user.email "hayko5999@gamil.com"
-        git config --global user.name "hayk96"         
+        git config --global user.name "hayk96" 
+        git fetch origin gh-pages        
         git add build     
         git commit --no-edit --allow-empty -m "Committed at $(date)"
         git push origin gh-pages
