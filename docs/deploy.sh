@@ -137,6 +137,7 @@ main() {
 initial_deploy() {
   git --work-tree "$deploy_directory" checkout --orphan $deploy_branch
   git --work-tree "$deploy_directory" add --all
+  git status
   commit+push
 }
 
@@ -146,6 +147,7 @@ incremental_deploy() {
   #put the previously committed contents of deploy_branch into the index
   git --work-tree "$deploy_directory" reset --mixed --quiet
   git --work-tree "$deploy_directory" add --all
+  git status
 
   set +o errexit
   diff=$(git --work-tree "$deploy_directory" diff --exit-code --quiet HEAD --)$?
