@@ -69,7 +69,7 @@ parse_args() {
   # vars should be declared here, with sane defaults if applicable.
 
   # Source directory & target branch.
-  deploy_directory=build
+  deploy_directory=$(pwd)/build
   deploy_branch=gh-pages
 
   #if no user identity is already set in the current git environment, use this:
@@ -137,7 +137,6 @@ main() {
 initial_deploy() {
   git --work-tree "$deploy_directory" checkout --orphan $deploy_branch
   git --work-tree "$deploy_directory" add --all
-  git status
   commit+push
 }
 
@@ -147,7 +146,6 @@ incremental_deploy() {
   #put the previously committed contents of deploy_branch into the index
   git --work-tree "$deploy_directory" reset --mixed --quiet
   git --work-tree "$deploy_directory" add --all
-  git status
 
   set +o errexit
   diff=$(git --work-tree "$deploy_directory" diff --exit-code --quiet HEAD --)$?
