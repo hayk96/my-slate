@@ -46,20 +46,22 @@ jobs:
         ls -l ./build
         cat ../.gitignore || cat .gitignore || echo ok
 
-    # - name: Deploy
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     allow_empty_commit: true
-    #     publish_dir: ./build
-    #     keep_files: true
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        allow_empty_commit: true
+        enable_jekyll: true
+        publish_dir: ./build
+        exclude_assets: ""
+        keep_files: true
 
-    - name: Commit and push changes
-      run: |
-        git config --global user.email "hayko5999@gamil.com"
-        git config --global user.name "hayk96" 
-        git fetch origin gh-pages
-        git checkout gh-pages
-        git add build     
-        git commit --allow-empty -m "Committed at $(date)" --amend
-        git push origin gh-pages -f
+    # - name: Commit and push changes
+    #   run: |
+    #     git config --global user.email "hayko5999@gamil.com"
+    #     git config --global user.name "hayk96" 
+    #     git fetch origin gh-pages
+    #     git checkout gh-pages
+    #     git add build     
+    #     git commit --allow-empty -m "Committed at $(date)" --amend
+    #     git push origin gh-pages -f
