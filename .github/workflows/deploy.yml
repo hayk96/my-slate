@@ -61,5 +61,5 @@ jobs:
         git fetch origin gh-pages
         git checkout gh-pages
         git add build     
-        git --work-tree build commit --allow-empty -m "Committed at $(date)" --amend
+        git commit --allow-empty -m "Committed at $(date)" --amend
         git push origin gh-pages -f
