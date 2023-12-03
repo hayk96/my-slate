@@ -52,8 +52,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         allow_empty_commit: true
         enable_jekyll: true
-        publish_dir: ./build
-        exclude_assets: ""
+        publish_dir: ./docs
         keep_files: true
 
     # - name: Commit and push changes
