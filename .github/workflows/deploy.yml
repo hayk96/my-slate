@@ -14,7 +14,7 @@ jobs:
       ruby-version: 2.6
     defaults:
       run:
-        working-directory: ./docs
+        working-directory: ./docs/web
 
     steps:
     - uses: actions/checkout@v2
@@ -52,7 +52,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         allow_empty_commit: true
         enable_jekyll: true
-        publish_dir: ./docs/build
+        publish_dir: ./docs/web/build
         keep_files: true
 
     # - name: Commit and push changes
